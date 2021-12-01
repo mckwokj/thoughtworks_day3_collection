@@ -14,11 +14,15 @@ public class StreamSupplement {
     }
 
     public double getAverage(List<Integer> numbers) {
-        return 0;
+        int total = numbers.stream()
+                .reduce(0, (sum, number) -> sum + number);
+
+        return total * 1.0 / numbers.size();
     }
 
     public int getMaxValue(List<Integer> numbers) {
-        return 0;
+        return numbers.stream()
+                .reduce(numbers.get(0), (max, number) -> number > max ? number : max);
     }
 
 }

@@ -16,7 +16,7 @@ public class StreamReduce {
 
     public int getTotalLength(List<String> words) {
         return words.stream()
-                .reduce("", (wordLength, word) -> wordLength + word)
+                .reduce("", (prevWords, word) -> prevWords + word)
                 .length();
     }
 }
