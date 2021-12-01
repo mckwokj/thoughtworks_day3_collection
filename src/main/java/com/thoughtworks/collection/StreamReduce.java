@@ -5,14 +5,18 @@ import java.util.List;
 public class StreamReduce {
 
     public int getLastOdd(List<Integer> numbers) {
-        return 0;
+        return numbers.stream()
+                .reduce(0, (odd, number) -> number % 2 != 0 ? number : odd);
     }
 
     public String getLongest(List<String> words) {
-        return null;
+        return words.stream()
+                .reduce(words.get(0), (largestWord, word) -> word.length() > largestWord.length() ? word : largestWord);
     }
 
     public int getTotalLength(List<String> words) {
-        return 0;
+        return words.stream()
+                .reduce("", (wordLength, word) -> wordLength + word)
+                .length();
     }
 }
