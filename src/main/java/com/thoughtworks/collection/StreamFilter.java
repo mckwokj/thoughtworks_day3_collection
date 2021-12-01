@@ -20,7 +20,10 @@ public class StreamFilter {
     }
 
     public List<Integer> getCommonElements(List<Integer> numbers, List<Integer> anotherNumbers) {
-        return null;
+        return numbers
+                .stream()
+                .filter(number -> anotherNumbers.contains(number))
+                .collect(Collectors.toList());
     }
 
 
